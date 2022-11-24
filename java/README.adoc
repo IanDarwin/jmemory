@@ -1,0 +1,4 @@
+= java/BoardSetup
+
+The source file BoardSetup.java has been left here to allow devs to see how
+similar Java and Dart are on a simple syntactic basis.
