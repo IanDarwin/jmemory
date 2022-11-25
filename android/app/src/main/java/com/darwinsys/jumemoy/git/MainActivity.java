@@ -1,4 +1,4 @@
-package com.darwinsys.jumemoy.git;
+package com.darwinsys.jumemoy.jmemory;
 
 import io.flutter.embedding.android.FlutterActivity;
 

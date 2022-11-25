@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.darwinsys.jumemoy" "\0"
-            VALUE "FileDescription", "git" "\0"
+            VALUE "FileDescription", "jmemory" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "git" "\0"
+            VALUE "InternalName", "jmemory" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2022 com.darwinsys.jumemoy. All rights reserved." "\0"
-            VALUE "OriginalFilename", "git.exe" "\0"
-            VALUE "ProductName", "git" "\0"
+            VALUE "OriginalFilename", "jmemory.exe" "\0"
+            VALUE "ProductName", "jmemory" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

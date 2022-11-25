@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.darwinsys.jumemoy.git">
+    package="com.darwinsys.jumemoy.jmemory">
    <application
-        android:label="git"
+        android:label="jMemory"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

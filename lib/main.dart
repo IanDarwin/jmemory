@@ -76,7 +76,9 @@ class _MyHomePageState extends State<MyHomePage> {
               TextButton(
                 child: const Text('Yes'),
                 onPressed: () {
-                  BoardSetup().newGame();
+                  setState(() {
+                    BoardSetup().newGame();
+                  });
                   Navigator.of(context).pop();
                 },
               ),

@@ -1,4 +1,4 @@
-name: git
+name: jmemory
 description: A simple memory game in Flutter.
 
 # The following line prevents the package from being accidentally published to
