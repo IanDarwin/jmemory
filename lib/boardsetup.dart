@@ -1,18 +1,26 @@
 import 'dart:core';
 import 'dart:math';
 
+import 'Tile.dart';
+
 /// The game board consists of a grid sprinkled with pairs of 2-digit numbers (01-99)
 class BoardSetup {
 	static const int NR = 6, UNUSED = -1;
-	var grid = List.generate(NR, (i) => List.generate(NR, (i) => UNUSED));
+	static var grid = List<List<int>>.generate(NR, (i) => List.generate(NR, (i) => UNUSED));
+	List<List<Tile>>? tiles;
+
 	var used = List<bool>.filled(100, false, growable: false);
 	var randi = Random();
 
-	int randomRowCol() {
+	BoardSetup() {
+		newGame();
+	}
+
+	int _randomRowCol() {
 		return randi.nextInt(NR);
 	}
 
-	int randomValue() {
+	int _randomValue() {
 		do {
 			var n = randi.nextInt(100);
 			if (!used[n]) {
@@ -25,14 +33,14 @@ class BoardSetup {
 	void newGame() {
 		used = List<bool>.filled(100, false, growable: false);
 		for (int i = 0; i < NR*NR/2; i++) {
-			int r = randomValue();
-			findSpotForFirst(r);
-			findSpotForSecond(r);
+			int r = _randomValue();
+			_findSpotForFirst(r);
+			_findSpotForSecond(r);
 		}
 	}
 
 	/** Find and populate the first available grid square */
-	void findSpotForFirst(int r) {
+	void _findSpotForFirst(int r) {
 		for (int i = 0; i < NR; i++) {
 			for (int j = 0; j < NR; j++) {
 				if (grid[i][j] == UNUSED) {
@@ -44,8 +52,8 @@ class BoardSetup {
 	}
 
 	/** Find a random empty spot to place the 2nd item of a pair */
-	void findSpotForSecond(int r) {
-		int startx = randomRowCol(), starty = randomRowCol();
+	void _findSpotForSecond(int r) {
+		int startx = _randomRowCol(), starty = _randomRowCol();
 		for (int i = startx; i < NR; i++) {
 			for (int j = starty; j < NR; j++) {
 				if (grid[i][j] == UNUSED) {
