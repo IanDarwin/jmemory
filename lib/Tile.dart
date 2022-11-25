@@ -1,6 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:jmemory/gamecontroller.dart';
+import 'gamecontroller.dart';
 
 enum TileMode {
   SHOWN,
@@ -8,6 +7,7 @@ enum TileMode {
   CLEARED,
 }
 
+/// Represents one Tile in the game
 class Tile extends StatefulWidget {
   final int x, y;
   final Widget secret;
@@ -15,6 +15,8 @@ class Tile extends StatefulWidget {
   Tile(this.x, this.y, this.secret, {super.key}) {
     state = TileState(x, y, secret);
   }
+
+  @override
   // ignore: no_logic_in_create_state
   TileState createState() {
     return state!;
@@ -34,7 +36,7 @@ class TileState extends State<Tile> {
 
   _unHide() {
     setState(() => tileMode = TileMode.SHOWN);
-    GameController.clicked(widget);
+    // XXX GameController.clicked(widget);
   }
 
   reHide() {

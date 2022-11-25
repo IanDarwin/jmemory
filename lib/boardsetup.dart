@@ -7,6 +7,7 @@ import 'Tile.dart';
 class BoardSetup {
 	static const int NR = 6, UNUSED = -1;
 	static List<List<int>>? secretsGrid;
+	static List<List<Tile>>? tilesGrid;
 	List<List<Tile>>? tiles;
 
 	var used = List<bool>.filled(100, false, growable: false);
@@ -33,6 +34,10 @@ class BoardSetup {
 			int r = _randomValue();
 			_findSpotForFirst(r);
 			_findSpotForSecond(r);
+		}
+		tilesGrid = [];
+		for (int i = 0; i < NR; i++) {
+			tilesGrid!.add([]);
 		}
 	}
 

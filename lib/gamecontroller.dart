@@ -1,4 +1,5 @@
 import 'package:flutter/foundation.dart';
+import 'package:jmemory/globals.dart';
 
 import 'Tile.dart';
 import 'boardsetup.dart';
@@ -21,11 +22,23 @@ class GameController {
         previous!.setCleared();
         nMinus1?.state?.reHide();
         previous = nMinus1 = null;
+        checkForTheWin();
         return;
       }
     }
     nMinus1?.state?.reHide();
     nMinus1 = previous;
     previous = widget;
+  }
+
+  static checkForTheWin() {
+    for (int i = 0; i < Globals.NR; i++) {
+      for (int j = 0; j < Globals.NR; j++) {
+        if (BoardSetup.tilesGrid![i][j].state?.tileMode != TileMode.CLEARED) {
+          return;
+        }
+      }
+    }
+    print("PLAYER HAS WON!!");
   }
 }

@@ -6,21 +6,21 @@ import 'globals.dart';
 
 void main() {
   BoardSetup().newGame();
-  runApp(const MyApp());
+  runApp(const MemApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class MemApp extends StatelessWidget {
+  const MemApp({super.key});
 
   // This widget is the root of the application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'JMemoy',
+      title: 'JMemory',
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
       ),
-      home: const MyHomePage(title: 'JMemoy Memory Game'),
+      home: const MyHomePage(title: 'JMemory Recall Game'),
     );
   }
 }
@@ -48,8 +48,10 @@ class _MyHomePageState extends State<MyHomePage> {
           children: List.generate(Globals.num_columns * Globals.num_rows, (index) {
             int x = index~/Globals.NR, y = index%Globals.NR;
             int secret = BoardSetup.secretsGrid![x][y];
-            return Tile(x, y,
+            var t = Tile(x, y,
                     Text('$secret'));
+            BoardSetup.tilesGrid![x].add(t);
+            return t;
 
           }),
         ),
