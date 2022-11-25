@@ -10,9 +10,9 @@ A simple memory game for mobile, written in Google's cross-platform https://flut
 
 === Features
 
-* Inkwell animation on both tiles being removed?
+* When Win detected, offer to start new game
+* Animation when matching tiles being removed?
 * Scoring!
-* Win detection.
 * Sound effect, animation or other notification on match.
 
 

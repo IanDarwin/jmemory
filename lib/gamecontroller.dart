@@ -17,7 +17,9 @@ class GameController {
       int px = previous!.x,
           py = previous!.y;
       if (BoardSetup.secretsGrid![x][y] == BoardSetup.secretsGrid![px][py]) {
-        print("MATCH at [$x,$y] and [$px,$py]");
+        if (kDebugMode) {
+          print("MATCH at [$x,$y] and [$px,$py]");
+        }
         widget.setCleared();
         previous!.setCleared();
         nMinus1?.state?.reHide();
@@ -39,6 +41,8 @@ class GameController {
         }
       }
     }
-    print("PLAYER HAS WON!!");
+    if (kDebugMode) {
+      print("PLAYER HAS WON THIS ROUND!!");
+    }
   }
 }

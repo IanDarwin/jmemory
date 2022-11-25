@@ -48,11 +48,9 @@ class _MyHomePageState extends State<MyHomePage> {
           children: List.generate(Globals.num_columns * Globals.num_rows, (index) {
             int x = index~/Globals.NR, y = index%Globals.NR;
             int secret = BoardSetup.secretsGrid![x][y];
-            var t = Tile(x, y,
-                    Text('$secret'));
+            var t = Tile(x, y, Text('$secret'));
             BoardSetup.tilesGrid![x].add(t);
             return t;
-
           }),
         ),
       ),

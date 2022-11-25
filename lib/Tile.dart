@@ -36,7 +36,7 @@ class TileState extends State<Tile> {
 
   _unHide() {
     setState(() => tileMode = TileMode.SHOWN);
-    // XXX GameController.clicked(widget);
+    GameController.clicked(widget);
   }
 
   reHide() {
