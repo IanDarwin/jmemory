@@ -9,9 +9,11 @@ A simple memory game for mobile, written in Google's cross-platform https://flut
 * Fix crash on device rotation, or disable rotation
 
 === Features
+
+* Inkwell animation on both tiles being removed?
 * Scoring!
 * Win detection.
-* Sound effect or other notification on match.
+* Sound effect, animation or other notification on match.
 
 
 
