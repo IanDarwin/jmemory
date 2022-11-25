@@ -6,7 +6,7 @@ import 'Tile.dart';
 /// The game board consists of a grid sprinkled with pairs of 2-digit numbers (01-99)
 class BoardSetup {
 	static const int NR = 6, UNUSED = -1;
-	static var grid = List<List<int>>.generate(NR, (i) => List.generate(NR, (i) => UNUSED));
+	static var secretsGrid = List<List<int>>.generate(NR, (i) => List.generate(NR, (i) => UNUSED));
 	List<List<Tile>>? tiles;
 
 	var used = List<bool>.filled(100, false, growable: false);
@@ -43,8 +43,8 @@ class BoardSetup {
 	void _findSpotForFirst(int r) {
 		for (int i = 0; i < NR; i++) {
 			for (int j = 0; j < NR; j++) {
-				if (grid[i][j] == UNUSED) {
-					grid[i][j] = r;
+				if (secretsGrid[i][j] == UNUSED) {
+					secretsGrid[i][j] = r;
 					return;
 				}
 			}
@@ -56,8 +56,8 @@ class BoardSetup {
 		int startx = _randomRowCol(), starty = _randomRowCol();
 		for (int i = startx; i < NR; i++) {
 			for (int j = starty; j < NR; j++) {
-				if (grid[i][j] == UNUSED) {
-					grid[i][j] = r;
+				if (secretsGrid[i][j] == UNUSED) {
+					secretsGrid[i][j] = r;
 					return;
 				}
 			}
@@ -65,8 +65,8 @@ class BoardSetup {
 		/* Still here? Didn't find a fit yet */
 		for (int i = NR - 1; i >= 0; i--) {
 			for (int j = NR - 1; j >= 0; j--) {
-				if (grid[i][j] == UNUSED) {
-					grid[i][j] = r;
+				if (secretsGrid[i][j] == UNUSED) {
+					secretsGrid[i][j] = r;
 					return;
 				}
 			}
@@ -80,7 +80,7 @@ class BoardSetup {
 	void dumpGrid(String tag) {
 		print(tag);
 		for (int i=0; i < NR; i++) {
-				print(grid[i]);
+				print(secretsGrid[i]);
 			}
 			print("");
 	}

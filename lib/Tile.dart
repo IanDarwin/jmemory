@@ -19,6 +19,10 @@ class Tile extends StatefulWidget {
   TileState createState() {
     return state!;
   }
+
+  setCleared() {
+    state!.setCleared();
+  }
 }
 
 class TileState extends State<Tile> {
@@ -38,6 +42,11 @@ class TileState extends State<Tile> {
     setState(() => tileMode = TileMode.HIDDEN);
   }
 
+  setCleared() {
+    print("Clearing");
+    setState(() => tileMode = TileMode.CLEARED);
+  }
+
   _doNothing() {
     //
   }
@@ -47,15 +56,24 @@ class TileState extends State<Tile> {
     switch(tileMode) {
       case TileMode.HIDDEN:
         return ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.teal,
+            ),
             onPressed: _unHide,
             child: Text(''));
       case TileMode.SHOWN:
         return ElevatedButton(
             onPressed: _doNothing,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.green,
+            ),
             child: secret);
       case TileMode.CLEARED:
         return ElevatedButton(
-            onPressed: _unHide,
+            onPressed: _doNothing,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.black12,
+            ),
             child: Text(''));
     }
   }

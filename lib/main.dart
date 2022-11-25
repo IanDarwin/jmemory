@@ -5,6 +5,7 @@ import 'boardsetup.dart';
 import 'globals.dart';
 
 void main() {
+  BoardSetup();
   runApp(const MyApp());
 }
 
@@ -46,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisCount: Globals.num_columns,
           children: List.generate(Globals.num_columns * Globals.num_rows, (index) {
             int x = index~/Globals.NR, y = index%Globals.NR;
-            int secret = BoardSetup.grid[x][y];
+            int secret = BoardSetup.secretsGrid[x][y];
             return Tile(x, y,
                     Text('$secret'));
 
