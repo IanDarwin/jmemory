@@ -2,3 +2,8 @@
 
 A simple memory game in Flutter.
 
+== TODO
+
+* Scoring!
+* Win detection.
+
