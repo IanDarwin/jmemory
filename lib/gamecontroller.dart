@@ -15,7 +15,7 @@ class GameController {
     if (previous != null) {
       int px = previous!.x,
           py = previous!.y;
-      if (BoardSetup.secretsGrid[x][y] == BoardSetup.secretsGrid[px][py]) {
+      if (BoardSetup.secretsGrid![x][y] == BoardSetup.secretsGrid![px][py]) {
         print("MATCH at [$x,$y] and [$px,$py]");
         widget.setCleared();
         previous!.setCleared();

@@ -74,7 +74,7 @@ class TileState extends State<Tile> {
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.black12,
             ),
-            child: Text(''));
+            child: const Icon(Icons.check));
     }
   }
 }

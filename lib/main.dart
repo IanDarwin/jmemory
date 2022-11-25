@@ -5,7 +5,7 @@ import 'boardsetup.dart';
 import 'globals.dart';
 
 void main() {
-  BoardSetup();
+  BoardSetup().newGame();
   runApp(const MyApp());
 }
 
@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
           crossAxisCount: Globals.num_columns,
           children: List.generate(Globals.num_columns * Globals.num_rows, (index) {
             int x = index~/Globals.NR, y = index%Globals.NR;
-            int secret = BoardSetup.secretsGrid[x][y];
+            int secret = BoardSetup.secretsGrid![x][y];
             return Tile(x, y,
                     Text('$secret'));
 
@@ -57,16 +57,38 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: _handleFab,
         tooltip: 'Doodad',
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.refresh_outlined),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 
-  void _handlePress() {
-    print("Click!");
-  }
-
   void _handleFab() {
-    print("Wot now?");
+    showDialog<void>(
+        context: context,
+        barrierDismissible: false, // means the user must tap a button to exit the Alert Dialog
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text("New game?"),
+            content: const SingleChildScrollView(
+              child: Text("Start a new game?"),
+            ),
+            actions: <Widget>[
+              TextButton(
+                child: const Text('Yes'),
+                onPressed: () {
+                  BoardSetup().newGame();
+                  Navigator.of(context).pop();
+                },
+              ),
+              TextButton(
+                child: const Text('No'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        }
+    );
   }
 }

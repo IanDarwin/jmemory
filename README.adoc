@@ -1,9 +1,18 @@
-= jumemoy
+= Jmemoy
 
-A simple memory game in Flutter.
+A simple memory game for mobile, written in Google's cross-platform https://flutter.dev[Flutter] toolkit.
 
 == TODO
 
+=== Bugs
+* New game refreshes data but not screen
+* Fix crash on device rotation, or disable rotation
+
+=== Features
 * Scoring!
 * Win detection.
+* Sound effect or other notification on match.
+
+
+
 
