@@ -1,4 +1,4 @@
-= Jmemoy
+= Jmemory
 
 A simple memory game for mobile, written in Google's cross-platform https://flutter.dev[Flutter] toolkit.
 
