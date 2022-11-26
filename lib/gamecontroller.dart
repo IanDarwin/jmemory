@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:jmemory/globals.dart';
 
-import 'Tile.dart';
+import 'tile.dart';
 import 'boardsetup.dart';
 
 class GameController {

@@ -3,7 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'globals.dart';
-import 'Tile.dart';
+import 'tile.dart';
 
 /// The game board consists of a NxN grid sprinkled with pairs of 2-digit numbers (00-99)
 class BoardSetup {

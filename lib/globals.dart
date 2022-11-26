@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'Tile.dart';
+import 'tile.dart';
 
 /** Some globals */
 class Globals {

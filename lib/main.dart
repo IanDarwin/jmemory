@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import 'Tile.dart';
+import 'tile.dart';
 import 'boardsetup.dart';
 import 'globals.dart';
 
@@ -21,26 +21,33 @@ class MemApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
       ),
-      home: const MyHomePage(title: 'JMemory Recall Game'),
+      home: MemHomePage(key: UniqueKey(), title: 'JMemory Recall Game'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MemHomePage extends StatefulWidget {
+  const MemHomePage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MemHomePage> createState() => _MemHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MemHomePageState extends State<MemHomePage> {
 
+  int gameCount = 0, winCount = 0;
+
+  @override
+  void initState() {
+    // Nothing needed here, I fear.
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     if (kDebugMode) {
-      print("MyHomepageState::build");
+      print("MemHomepageState::build");
     }
     BoardSetup().newGame(); // Resets secrets and grids
     return Scaffold(
@@ -61,6 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
             return t;
           }),
         ),
+        // Text("You have played $gameCount games."),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => newGameDialog("Start a new game?"),
@@ -85,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: const Text('Yes'),
                 onPressed: () {
                   setState(() {
-                    // Should be enough to trigger full rebuild
+                    gameCount++;
                   });
                   Navigator.of(context).pop();
                 },
