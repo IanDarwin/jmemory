@@ -7,8 +7,8 @@ import 'tile.dart';
 
 /// The game board consists of a NxN grid sprinkled with pairs of 2-digit numbers (00-99)
 class GameBoard {
-	static List<List<int>>? secretsGrid;
-	static List<List<Tile>>? tilesGrid;
+	List<List<int>>? secretsGrid;
+	List<List<Tile>>? tilesGrid;
 
 	var _used = List<bool>.filled(100, false, growable: false);
 	var _randi = Random();

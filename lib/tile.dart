@@ -11,8 +11,10 @@ enum TileMode {
 class Tile extends StatefulWidget {
   final int x, y;
   final Widget secret;
+  final GameController gameController;
   TileState? state;
-  Tile(this.x, this.y, this.secret, {super.key}) {
+
+  Tile(this.x, this.y, this.secret, this.gameController, {super.key}) {
     state = TileState(x, y, secret);
   }
 
@@ -36,7 +38,7 @@ class TileState extends State<Tile> {
 
   _unHide() {
     setState(() => tileMode = TileMode.SHOWN);
-    GameController.clicked(widget);
+    widget.gameController.clicked(widget);
   }
 
   reHide() {

@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import 'gamecontroller.dart';
 import 'tile.dart';
 import 'gameboard.dart';
 import 'globals.dart';
@@ -37,19 +38,21 @@ class MemHomePage extends StatefulWidget {
 
 class _MemHomePageState extends State<MemHomePage> {
 
+  GameBoard gameBoard = GameBoard();
+  GameController? gameController;
   int gameCount = 0, winCount = 0;
 
   @override
   void initState() {
-    // Nothing needed here, I fear.
     super.initState();
+    gameController = GameController(gameBoard);
   }
   @override
   Widget build(BuildContext context) {
     if (kDebugMode) {
       print("MemHomepageState::build");
     }
-    GameBoard().newGame(); // Resets secrets and grids
+    gameBoard.newGame(); // Resets secrets and grids
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -59,9 +62,9 @@ class _MemHomePageState extends State<MemHomePage> {
           crossAxisCount: Globals.num_columns,
           children: List.generate(Globals.num_columns * Globals.num_rows, (index) {
             int x = index~/Globals.NR, y = index%Globals.NR;
-            int secret = GameBoard.secretsGrid![x][y];
-            var t = Tile(x, y, Text('$secret'));
-            GameBoard.tilesGrid![x].add(t);
+            int secret = gameBoard.secretsGrid![x][y];
+            var t = Tile(x, y, Text('$secret'), gameController!);
+            gameBoard.tilesGrid![x].add(t);
             // if (kDebugMode) {
             //   print("Row $x is ${BoardSetup.secretsGrid![x]} ${BoardSetup.tilesGrid![x][y].hashCode}");
             // }
