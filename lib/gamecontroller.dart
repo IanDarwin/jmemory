@@ -10,8 +10,7 @@ class GameController {
     int x = widget.x, y = widget.y;
     if (kDebugMode) {
       print("Click in Tile[${x},${y}]");
-      print("Previous ${previous?.hashCode}");
-      print("Previous state ${previous?.state}");
+      print("Previous ${previous?.hashCode}; state ${previous?.state}");
     }
     if (previous != null) {
       int px = previous!.x,

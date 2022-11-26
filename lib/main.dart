@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'Tile.dart';
@@ -38,6 +39,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    if (kDebugMode) {
+      print("MyHomepageState::build");
+    }
+    BoardSetup().newGame(); // Resets secrets and grids
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -50,34 +55,38 @@ class _MyHomePageState extends State<MyHomePage> {
             int secret = BoardSetup.secretsGrid![x][y];
             var t = Tile(x, y, Text('$secret'));
             BoardSetup.tilesGrid![x].add(t);
+            print("Row $x is ${BoardSetup.secretsGrid![x]} ${BoardSetup.tilesGrid![x][y].hashCode}");
             return t;
           }),
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _handleFab,
-        tooltip: 'Doodad',
+        tooltip: 'New game?',
         child: const Icon(Icons.refresh_outlined),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 
   void _handleFab() {
+    newGameDialog("Start a new game?");
+  }
+
+  void newGameDialog(String message) {
     showDialog<void>(
         context: context,
         barrierDismissible: false, // means the user must tap a button to exit the Alert Dialog
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text("New game?"),
-            content: const SingleChildScrollView(
-              child: Text("Start a new game?"),
-            ),
+            content: Text(message),
+            //),
             actions: <Widget>[
               TextButton(
                 child: const Text('Yes'),
                 onPressed: () {
                   setState(() {
-                    BoardSetup().newGame();
+                    // Should be enough to trigger full rebuild
                   });
                   Navigator.of(context).pop();
                 },
