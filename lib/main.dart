@@ -6,7 +6,7 @@ import 'boardsetup.dart';
 import 'globals.dart';
 
 void main() {
-  BoardSetup().newGame();
+  //BoardSetup().newGame();
   runApp(const MemApp());
 }
 
@@ -55,23 +55,22 @@ class _MyHomePageState extends State<MyHomePage> {
             int secret = BoardSetup.secretsGrid![x][y];
             var t = Tile(x, y, Text('$secret'));
             BoardSetup.tilesGrid![x].add(t);
-            print("Row $x is ${BoardSetup.secretsGrid![x]} ${BoardSetup.tilesGrid![x][y].hashCode}");
+            // if (kDebugMode) {
+            //   print("Row $x is ${BoardSetup.secretsGrid![x]} ${BoardSetup.tilesGrid![x][y].hashCode}");
+            // }
             return t;
           }),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _handleFab,
+        onPressed: () => newGameDialog("Start a new game?"),
         tooltip: 'New game?',
         child: const Icon(Icons.refresh_outlined),
       ),
     );
   }
 
-  void _handleFab() {
-    newGameDialog("Start a new game?");
-  }
-
+  /** Called from the FAB and also from GameController "won" logic */
   void newGameDialog(String message) {
     showDialog<void>(
         context: context,
