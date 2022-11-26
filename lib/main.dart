@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'tile.dart';
-import 'boardsetup.dart';
+import 'gameboard.dart';
 import 'globals.dart';
 
 void main() {
@@ -49,7 +49,7 @@ class _MemHomePageState extends State<MemHomePage> {
     if (kDebugMode) {
       print("MemHomepageState::build");
     }
-    BoardSetup().newGame(); // Resets secrets and grids
+    GameBoard().newGame(); // Resets secrets and grids
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
@@ -59,9 +59,9 @@ class _MemHomePageState extends State<MemHomePage> {
           crossAxisCount: Globals.num_columns,
           children: List.generate(Globals.num_columns * Globals.num_rows, (index) {
             int x = index~/Globals.NR, y = index%Globals.NR;
-            int secret = BoardSetup.secretsGrid![x][y];
+            int secret = GameBoard.secretsGrid![x][y];
             var t = Tile(x, y, Text('$secret'));
-            BoardSetup.tilesGrid![x].add(t);
+            GameBoard.tilesGrid![x].add(t);
             // if (kDebugMode) {
             //   print("Row $x is ${BoardSetup.secretsGrid![x]} ${BoardSetup.tilesGrid![x][y].hashCode}");
             // }

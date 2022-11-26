@@ -6,7 +6,7 @@ import 'globals.dart';
 import 'tile.dart';
 
 /// The game board consists of a NxN grid sprinkled with pairs of 2-digit numbers (00-99)
-class BoardSetup {
+class GameBoard {
 	static List<List<int>>? secretsGrid;
 	static List<List<Tile>>? tilesGrid;
 
@@ -94,7 +94,7 @@ class BoardSetup {
 }
 
 	void main() {
-		var board = BoardSetup();
+		var board = GameBoard();
 		board.dumpGrid("Before");
 		board.newGame();
 		board.dumpGrid("After filling");

@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:jmemory/globals.dart';
 
 import 'tile.dart';
-import 'boardsetup.dart';
+import 'gameboard.dart';
 
 class GameController {
   static Tile? previous, nMinus1;
@@ -15,7 +15,7 @@ class GameController {
     if (previous != null) {
       int px = previous!.x,
           py = previous!.y;
-      if (BoardSetup.secretsGrid![x][y] == BoardSetup.secretsGrid![px][py]) {
+      if (GameBoard.secretsGrid![x][y] == GameBoard.secretsGrid![px][py]) {
         if (kDebugMode) {
           print("MATCH at [$x,$y] and [$px,$py]");
         }
@@ -35,7 +35,7 @@ class GameController {
   static checkForTheWin() {
     for (int i = 0; i < Globals.NR; i++) {
       for (int j = 0; j < Globals.NR; j++) {
-        if (BoardSetup.tilesGrid![i][j].state?.tileMode != TileMode.CLEARED) {
+        if (GameBoard.tilesGrid![i][j].state?.tileMode != TileMode.CLEARED) {
           return;
         }
       }
