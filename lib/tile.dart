@@ -12,20 +12,20 @@ class Tile extends StatefulWidget {
   final int x, y;
   final Widget secret;
   final GameController gameController;
-  TileState? state;
+  TileState? tileState;
 
   Tile(this.x, this.y, this.secret, this.gameController, {super.key}) {
-    state = TileState(x, y, secret);
+    tileState = TileState(x, y, secret);
   }
 
   @override
-  // ignore: no_logic_in_create_state
   TileState createState() {
-    return state!;
+    //ignore: no_logic_in_create_state
+    return tileState!;
   }
 
   setCleared() {
-    state!.setCleared();
+    tileState!.setCleared();
   }
 }
 

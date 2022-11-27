@@ -33,10 +33,10 @@ class MemHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MemHomePage> createState() => _MemHomePageState();
+  State<MemHomePage> createState() => MemHomePageState();
 }
 
-class _MemHomePageState extends State<MemHomePage> {
+class MemHomePageState extends State<MemHomePage> {
 
   GameBoard gameBoard = GameBoard();
   GameController? gameController;
@@ -45,8 +45,9 @@ class _MemHomePageState extends State<MemHomePage> {
   @override
   void initState() {
     super.initState();
-    gameController = GameController(gameBoard);
+    gameController = GameController(gameBoard, this);
   }
+
   @override
   Widget build(BuildContext context) {
     if (kDebugMode) {

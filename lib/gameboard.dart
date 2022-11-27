@@ -9,9 +9,12 @@ import 'tile.dart';
 class GameBoard {
 	List<List<int>>? secretsGrid;
 	List<List<Tile>>? tilesGrid;
+	int? moves = 0;
 
-	var _used = List<bool>.filled(100, false, growable: false);
-	var _randi = Random();
+	List<bool> _used = [];
+	final _randi = Random();
+
+	void move() { moves = moves! + 1; }
 
 	int _randomRowCol() {
 		return _randi.nextInt(Globals.NR);
