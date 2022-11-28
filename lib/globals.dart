@@ -9,6 +9,5 @@ class Globals {
 
   static int num_rows = NR,
       num_columns = NR;
-
-  GlobalKey<TileState> _myKey = GlobalKey();
+  
 }

@@ -66,13 +66,13 @@ class MemHomePageState extends State<MemHomePage> {
             int secret = gameBoard.secretsGrid![x][y];
             var t = Tile(x, y, Text('$secret'), gameController!);
             gameBoard.tilesGrid![x].add(t);
-            // if (kDebugMode) {
-            //   print("Row $x is ${BoardSetup.secretsGrid![x]} ${BoardSetup.tilesGrid![x][y].hashCode}");
-            // }
+            if (kDebugMode) {
+              print("Row $x is ${gameBoard.secretsGrid![x]} ${gameBoard.tilesGrid![x][y].secret}");
+            }
             return t;
           }),
         ),
-        // Text("You have played $gameCount games."),
+        // Text("You have played $gameCount games and won $winCount."),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => newGameDialog("Start a new game?"),
