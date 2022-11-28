@@ -2,15 +2,20 @@
 
 A simple memory game for mobile, written in Google's cross-platform https://flutter.dev[Flutter] toolkit.
 
+The 'j' at the front of the name is just to differentiate it from all the other memory games.
+Or it could be j for Java, in which a few bits were initially prototyped.
+Or it could the the j from https://darwinsys.com/andrej[Andrej, the son I lost to Type 1 Diabetes].
+
 == TODO
 
 === Bugs
 
-* New game refreshes data but not screen
+* New game computes new grid data but leaves old showing on screen - grrr!
 * Fix crash on device rotation, or disable rotation
 
 === Feature Requirements
 
+* Fancy background, better use of screen real estate!
 * Improve randomization algo
 * Animation when matching tiles being removed?
 * More-competitive scoring
@@ -18,4 +23,3 @@ A simple memory game for mobile, written in Google's cross-platform https://flut
 * Generalize to 4x4/5x5/6x6/8x8
 * Generalize to use images
 * Settings dialog to control the above
-* Fancy background, better use of screen real estate
