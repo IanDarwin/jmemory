@@ -9,6 +9,7 @@ import 'tile.dart';
 class GameBoard {
 	List<List<int>>? secretsGrid;
 	List<List<Tile>>? tilesGrid;
+	Tile? previous, nMinus1;
 	int? moves = 0;
 
 	List<bool> _used = [];
@@ -18,6 +19,7 @@ class GameBoard {
 		if (kDebugMode) {
 		  print("GameBoard.newGame");
 		}
+		previous = nMinus1 = null;
 		_used = List<bool>.filled(100, false, growable: false);
 		secretsGrid = [];
 		for (int i = 0; i < Globals.NR; i++) {

@@ -8,7 +8,6 @@ import 'gameboard.dart';
 class GameController {
   GameBoard gameBoard;
   MemHomePageState homePageState;
-  Tile? previous, nMinus1;
 
   GameController(this.gameBoard, this.homePageState);
 
@@ -18,26 +17,26 @@ class GameController {
     int x = widget.x, y = widget.y;
     if (kDebugMode) {
       print("Click in Tile[${x},${y}]");
-      print("Previous ${previous?.hashCode}; state ${previous?.tileState}");
+      print("Previous ${gameBoard.previous?.hashCode}; state ${gameBoard.previous?.tileState}");
     }
-    if (previous != null) {
-      int px = previous!.x,
-          py = previous!.y;
+    if (gameBoard.previous != null) {
+      int px = gameBoard.previous!.x,
+          py = gameBoard.previous!.y;
       if (gameBoard.secretsGrid![x][y] == gameBoard.secretsGrid![px][py]) {
         if (kDebugMode) {
           print("MATCH at [$x,$y] and [$px,$py]");
         }
         widget.setCleared();
-        previous!.setCleared();
-        nMinus1?.tileState?.reHide();
-        previous = nMinus1 = null;
+        gameBoard.previous!.setCleared();
+        gameBoard.nMinus1?.tileState?.reHide();
+        gameBoard.previous = gameBoard.nMinus1 = null;
         checkForTheWin();
         return;
       }
     }
-    nMinus1?.tileState?.reHide();
-    nMinus1 = previous;
-    previous = widget;
+    gameBoard.nMinus1?.tileState?.reHide();
+    gameBoard.nMinus1 = gameBoard.previous;
+    gameBoard.previous = widget;
   }
 
   checkForTheWin() {

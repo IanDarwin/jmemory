@@ -18,12 +18,12 @@ Or it could the the j from https://darwinsys.com/andrej[Andrej, the son I lost t
 
 === Bugs
 
-* "New game" function updates screen with new tiles but crashes on first tap.
 * Fix crash on device rotation, or disable rotation
 
 === Feature Requirements
 
 * Fancy background, better use of screen real estate!
+* Layout: text with rules and plays summary underneath main.
 * Improve randomization algo
 * More-competitive scoring
 * Sound effect, animation or other notification on match.
