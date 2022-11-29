@@ -10,7 +10,7 @@ Or it could the the j from https://darwinsys.com/andrej[Andrej, the son I lost t
 
 * main.dart - the ubiquitous Flutter main program; includes build method for main screen
 * globals.dart - a few global values
-* tile.dart - one entry in the grid; based on its TileState, shows blank button, a secret, or a checkmark.
+* tile.dart - one entry in the grid; based on its TileMode, shows blank button, a secret, or a checkmark.
 * gameboard.dart - logic for filling the grid
 * gamecontroller.dart - logic for determining matches and when you won.
 
