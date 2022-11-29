@@ -18,16 +18,15 @@ Or it could the the j from https://darwinsys.com/andrej[Andrej, the son I lost t
 
 === Bugs
 
-* New game computes new grid data but leaves old showing on screen - grrr!
+* "New game" function updates screen with new tiles but crashes on first tap.
 * Fix crash on device rotation, or disable rotation
 
 === Feature Requirements
 
 * Fancy background, better use of screen real estate!
 * Improve randomization algo
-* Animation when matching tiles being removed?
 * More-competitive scoring
 * Sound effect, animation or other notification on match.
 * Generalize to 4x4/5x5/6x6/8x8
-* Generalize to use images
+* Generalize to use images instead of numbers
 * Settings dialog to control the above
