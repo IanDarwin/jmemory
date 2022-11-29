@@ -14,25 +14,9 @@ class GameBoard {
 	List<bool> _used = [];
 	final _randi = Random();
 
-	void move() { moves = moves! + 1; }
-
-	int _randomRowCol() {
-		return _randi.nextInt(Globals.NR);
-	}
-
-	int _randomValue() {
-		do {
-			var n = _randi.nextInt(100);
-			if (!_used[n]) {
-				_used[n] = true;
-				return n;
-			}
-		} while (true);
-	}
-
 	void newGame() {
 		if (kDebugMode) {
-		  print("newGame");
+		  print("GameBoard.newGame");
 		}
 		_used = List<bool>.filled(100, false, growable: false);
 		secretsGrid = [];
@@ -49,6 +33,23 @@ class GameBoard {
 			_findSpotForSecond(r);
 		}
 	}
+
+	void move() { moves = moves! + 1; }
+
+	int _randomRowCol() {
+		return _randi.nextInt(Globals.NR);
+	}
+
+	int _randomValue() {
+		do {
+			var n = _randi.nextInt(100);
+			if (!_used[n]) {
+				_used[n] = true;
+				return n;
+			}
+		} while (true);
+	}
+
 
 	/** Find and populate the first available grid square */
 	void _findSpotForFirst(int r) {
