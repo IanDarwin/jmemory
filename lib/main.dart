@@ -7,7 +7,6 @@ import 'gameboard.dart';
 import 'globals.dart';
 
 void main() {
-  //BoardSetup().newGame();
   runApp(const MemApp());
 }
 
