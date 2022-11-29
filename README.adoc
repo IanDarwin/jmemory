@@ -6,6 +6,14 @@ The 'j' at the front of the name is just to differentiate it from all the other 
 Or it could be j for Java, in which a few bits were initially prototyped.
 Or it could the the j from https://darwinsys.com/andrej[Andrej, the son I lost to Type 1 Diabetes].
 
+== Organization
+
+* main.dart - the ubiquitous Flutter main program; includes build method for main screen
+* globals.dart - a few global values
+* tile.dart - one entry in the grid; based on its TileState, shows blank button, a secret, or a checkmark.
+* gameboard.dart - logic for filling the grid
+* gamecontroller.dart - logic for determining matches and when you won.
+
 == TODO
 
 === Bugs
