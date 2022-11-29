@@ -63,7 +63,7 @@ class MemHomePageState extends State<MemHomePage> {
           children: List.generate(Globals.num_columns * Globals.num_rows, (index) {
             int x = index~/Globals.NR, y = index%Globals.NR;
             int secret = gameBoard.secretsGrid![x][y];
-            var t = Tile(x, y, Text('$secret'), gameController!);
+            var t = Tile(x, y, Text('$secret'), gameController!, key: UniqueKey());
             gameBoard.tilesGrid![x].add(t);
             if (kDebugMode) {
               print("Row $x is ${gameBoard.secretsGrid![x]} ${gameBoard.tilesGrid![x][y].secret}");

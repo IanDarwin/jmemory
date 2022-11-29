@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'gamecontroller.dart';
 
@@ -12,7 +13,7 @@ class Tile extends StatefulWidget {
   final int x, y;
   final Widget secret;
   final GameController gameController;
-  TileState? tileState;
+  late TileState tileState;
 
   Tile(this.x, this.y, this.secret, this.gameController, {super.key});
 
@@ -24,14 +25,12 @@ class Tile extends StatefulWidget {
   State<Tile> createState() => tileState = TileState();
 
   setCleared() {
-    tileState!.setCleared();
+    tileState.setCleared();
   }
 }
 
 class TileState extends State<Tile> {
   TileMode tileMode = TileMode.HIDDEN;
-
-  TileState();
 
   _unHide() {
     setState(() => tileMode = TileMode.SHOWN);
@@ -39,12 +38,16 @@ class TileState extends State<Tile> {
   }
 
   reHide() {
-    print("rehiding");
+    if (kDebugMode) {
+      print("rehiding");
+    }
     setState(() => tileMode = TileMode.HIDDEN);
   }
 
   setCleared() {
-    print("Clearing");
+    if (kDebugMode) {
+      print("Clearing");
+    }
     setState(() => tileMode = TileMode.CLEARED);
   }
 
