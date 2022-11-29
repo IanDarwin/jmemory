@@ -16,8 +16,12 @@ class Tile extends StatefulWidget {
 
   Tile(this.x, this.y, this.secret, this.gameController, {super.key});
 
+  // Slightly unorthodox: save state in a field in the SFW.
+  // (Overly?)complicated b/c we need access to the ordered grid of Widgets
+  // in the GameController class and need to access their state from there.
+  // Presumably there's a better way to organize this.
   @override
-  State<Tile> createState() => TileState(x, y, secret);
+  State<Tile> createState() => tileState = TileState();
 
   setCleared() {
     tileState!.setCleared();
@@ -25,11 +29,9 @@ class Tile extends StatefulWidget {
 }
 
 class TileState extends State<Tile> {
-  final int x, y;
-  final Widget secret;
   TileMode tileMode = TileMode.HIDDEN;
 
-  TileState(this.x, this.y, this.secret);
+  TileState();
 
   _unHide() {
     setState(() => tileMode = TileMode.SHOWN);
@@ -66,7 +68,7 @@ class TileState extends State<Tile> {
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.green,
             ),
-            child: secret);
+            child: widget.secret);
       case TileMode.CLEARED:
         return ElevatedButton(
             onPressed: _doNothing,
