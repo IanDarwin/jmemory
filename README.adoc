@@ -16,7 +16,8 @@ Or it could the the j from https://darwinsys.com/andrej[Andrej, the son I lost t
 
 == TODO
 
-Replace the infrastructure with Flutter's own
+This repo at this point is just a proof-of-concept.
+We need to replace the infrastructure with Flutter's own
 Casual Games Toolkit
 (cf https://docs.flutter.dev/resources/games-toolkit[the docs]).
 
