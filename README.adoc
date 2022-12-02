@@ -4,6 +4,7 @@ A simple memory game for mobile, written in Google's cross-platform https://flut
 
 The 'j' at the front of the name is just to differentiate it from all the other memory games.
 Or it could be j for Java, in which a few bits were initially prototyped.
+Or it could be for Jumanji - an early prototype was name jumemoy, but that never sounded right.
 Or it could the the j from https://darwinsys.com/andrej[Andrej, the son I lost to Type 1 Diabetes].
 
 == Organization
